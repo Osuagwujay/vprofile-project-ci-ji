@@ -28,10 +28,10 @@
 
   <mirrors>
     <mirror>
-      <id>vpro-maven-central</id>
-      <name>vpro-maven-central</name>
+      <id>nexus</id>
+      <name>Nexus Proxy</name>
       <url>http://172.31.3.162:8081/repository/vpro-maven-repo/</url>
-      <mirrorOf>*</mirrorOf>
+      <mirrorOf>*,!central</mirrorOf>
     </mirror>
   </mirrors>
 
