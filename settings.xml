@@ -26,13 +26,35 @@
     </server>
   </servers>
 
+  <!-- 🚫 Commented out the mirror to let Maven hit Maven Central directly -->
+  <!--
   <mirrors>
     <mirror>
       <id>nexus</id>
       <name>Nexus Proxy</name>
-      <url>http://18.118.26.162:8081/repository/vpro-maven-repo/</url>
+      <url>http://18.118.26.162:8081/repository/vpro-maven-central/</url>
       <mirrorOf>*,!central</mirrorOf>
     </mirror>
   </mirrors>
+  -->
+
+  <!-- ✅ Explicitly enable Maven Central -->
+  <profiles>
+    <profile>
+      <id>central-direct</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo.maven.apache.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>central-direct</activeProfile>
+  </activeProfiles>
 
 </settings>
