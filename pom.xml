@@ -26,7 +26,6 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-
     <dependencies>
         <!-- Spring Framework -->
         <dependency>
@@ -39,7 +38,6 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
@@ -80,16 +78,16 @@
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
-<dependency>
-    <groupId>org.elasticsearch.client</groupId>
-    <artifactId>elasticsearch-rest-high-level-client</artifactId>
-    <version>7.10.2</version>
-</dependency>
-<dependency>
-    <groupId>org.elasticsearch</groupId>
-    <artifactId>elasticsearch</artifactId>
-    <version>7.10.2</version>
-</dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>7.10.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>7.10.2</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>
@@ -242,15 +240,12 @@
             <version>2.0.0</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>2.0.0</version>
         </dependency>
-
     </dependencies>
-
 
     <build>
         <plugins>
@@ -274,54 +269,33 @@
             </plugin>
             
             <!-- JaCoCo Plugin -->
- <plugin>
- 		        <groupId>org.jacoco</groupId>
- 		        <artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.8.8</version>
- 		        <executions>
- 		            <execution>
- 		                <id>jacoco-initialize</id>
- 		                <phase>process-resources</phase>
- 		                <goals>
- 		                    <goal>prepare-agent</goal>
- 		                </goals>
- 		            </execution>
- 		            <execution>
- 		                <id>jacoco-site</id>
- 		                <phase>post-integration-test</phase>
- 		                <goals>
- 		                    <goal>report</goal>
- 		                </goals>
- 		            </execution>
- 		        </executions>
- 		</plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.jacoco</groupId>-->
-<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
-<!--                <version>0.8.10</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>jacoco-initialize</id>-->
-<!--                        <phase>process-resources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>prepare-agent</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>jacoco-site</id>-->
-<!--                        <phase>post-integration-test</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>report</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-        </plugins>
-    </build>
-    <repositories>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+        </plugin>
+    </plugins>
+</build>
+
+<repositories>
     <repository>
-      <id>${NEXUS-GRP-REPO}</id>
-      <url>http://${NEXUSIP}:${NEXUSPORT}/repository/${NEXUS-GRP-REPO}/</url>
+        <id>vpro-maven-repo</id>
+        <url>http://18.118.26.162:8081/repository/vpro-maven-repo/</url>
     </repository>
-  </repositories>
-</project>
+</repositories>
